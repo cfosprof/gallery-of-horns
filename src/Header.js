@@ -1,8 +1,13 @@
 import React from 'react';
+import NavbarDarkExample from './Navbar.js';
 
 class Header extends React.Component {
   render(){
-    return <h1>Here are thy horned beast</h1>
+    return (
+      <header>
+        <NavbarDarkExample />
+      </header>
+    )
   }
 }
 
