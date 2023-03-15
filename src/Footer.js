@@ -11,15 +11,6 @@ class Footer extends React.Component {
           <Row>
             <Col md={4}>
               <h4>Made by Chris Foster</h4>
-              <p> {new Date().getFullYear()} Chris Foster</p>
-            </Col>
-            <Col md={4}>
-              <h4>Links</h4>
-              <ul>
-                <li><a href="#link1" className="text-white">Link 1</a></li>
-                <li><a href="#link2" className="text-white">Link 2</a></li>
-                <li><a href="#link3" className="text-white">Link 3</a></li>
-              </ul>
             </Col>
             <Col md={4}>
               <h4>Connect with me</h4>
