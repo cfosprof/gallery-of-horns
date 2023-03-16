@@ -4,12 +4,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
-// import RangeSlider from 'react-bootstrap-range-slider'; // Import RangeSlider
+// import RangeSlider from 'react-bootstrap-range-slider';
+// import beasts from './data/data.json';
 
 
 function NavbarDarkExample(props) {
-  // Destructure 'handleSort' from the received 'props'
-  const { handleSort, handleFilter, handleSearch } = props; // Change this line
+  // Destructure 'handleSort handleFilter, handleSearch' from the received 'props'
+  const { handleSort, handleFilter, handleSearch } = props; 
 
   // Define the 'handleSortClick' function, which takes 'sortKey' as its argument
   const handleSortClick = (sortKey) => {
@@ -79,8 +80,23 @@ function NavbarDarkExample(props) {
                 3 Horns
               </NavDropdown.Item>
             </NavDropdown>
+             {/* <div className="d-flex align-items-center ms-3">
+              <span className="me-2">Filter by horns:</span>
+              <RangeSlider
+                id="filter-by-horns-slider"
+                min={0}
+                // max={beasts.length}
+                max={20}
+                step={1}
+                defaultValue={0}
+                tooltip="auto"
+                tooltipPlacement="top"
+                variant="dark"
+                onChange={(event) => handleFilterClick(event.target.value)}
+              />
+          
+          // {/* Add the search form */}
           </Nav>
-          {/* Add the search form */}
           <Form className="d-flex ms-auto"> 
             <FormControl
               type="search"
