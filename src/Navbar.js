@@ -2,8 +2,9 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Form from 'react-bootstrap/Form'; // Import Form component
-import FormControl from 'react-bootstrap/FormControl'; // Import FormControl component
+import Form from 'react-bootstrap/Form';
+import FormControl from 'react-bootstrap/FormControl';
+// import RangeSlider from 'react-bootstrap-range-slider'; // Import RangeSlider
 
 
 function NavbarDarkExample(props) {
@@ -16,7 +17,7 @@ function NavbarDarkExample(props) {
   };
    // Add a new function for handling filter clicks
    const handleFilterClick = (filterKey) => {
-    console.log("Filter key:", filterKey); // Add this line
+    console.log("Filter key:", filterKey);
     handleFilter(filterKey);
   };
 
@@ -41,12 +42,6 @@ function NavbarDarkExample(props) {
         <Navbar.Collapse id="navbar-dark-example">
           {/* // Wrap the 'NavDropdown' component */}
           <Nav>
-            {/* <Form.Control
-              type="search"
-              placeholder="Search"
-              className="mr-sm-2"
-              onChange={handleSearchChange}
-            /> */}
             {/* // 'NavDropdown' component with Sort title, the id of the menu, and the 'menuVariant' set to 'dark' */}
             <NavDropdown
               id="nav-dropdown-dark-example"

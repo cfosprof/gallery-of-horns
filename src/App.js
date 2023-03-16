@@ -17,13 +17,13 @@ class App extends React.Component {
       sortBy: null,
       showModal: false,
       selectedBeast: null,
-      searchQuery: '', // Add a new state property for the search input value
+      searchQuery: '', 
     };
     this.handleSelect = this.handleSelect.bind(this);
     this.handleSort = this.handleSort.bind(this);
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
-    this.handleSearch = this.handleSearch.bind(this); // Bind the new event handler
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   // HandleSearch event handler
@@ -65,7 +65,7 @@ class App extends React.Component {
       <>
         <Header
         handleSort={this.handleSort}
-        handleFilter={this.handleSelect} // Pass handleSelect as handleFilter
+        handleFilter={this.handleSelect}
         handleSearch={this.handleSearch}
         />
           <Main
