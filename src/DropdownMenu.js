@@ -1,7 +1,6 @@
 import React from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-// Define the DropdownMenu functional component
 const DropdownMenu = ({ title, items, onSelect }) => (
   <Dropdown onSelect={onSelect}>
     <Dropdown.Toggle variant="primary" id="dropdown-basic">
