@@ -8,12 +8,20 @@ import FormControl from 'react-bootstrap/FormControl'; // Import FormControl com
 
 function NavbarDarkExample(props) {
   // Destructure 'handleSort' from the received 'props'
-  const { handleSort, handleSearch } = props;
+  const { handleSort, handleFilter, handleSearch } = props; // Change this line
 
   // Define the 'handleSortClick' function, which takes 'sortKey' as its argument
   const handleSortClick = (sortKey) => {
     handleSort(sortKey); // Call the 'handleSort' function passed as a prop with the 'sortKey' argument
   };
+   // Add a new function for handling filter clicks
+   const handleFilterClick = (filterKey) => {
+    console.log("Filter key:", filterKey); // Add this line
+    handleFilter(filterKey);
+  };
+
+
+
 
   const handleSearchChange = (e) => {
     handleSearch(e.target.value); // Call the 'handleSearch' function passed as a prop with the input value
@@ -55,6 +63,25 @@ function NavbarDarkExample(props) {
               </NavDropdown.Item>
               <NavDropdown.Item onClick={() => handleSortClick('alphabetical')}>
                 Alphabetical
+              </NavDropdown.Item>
+            </NavDropdown>
+            {/* Add a new NavDropdown for filtering */}
+            <NavDropdown
+              id="nav-dropdown-dark-example-filter"
+              title="Filter by horns"
+              menuVariant="dark"
+            >
+              <NavDropdown.Item onClick={() => handleFilterClick('0')}>
+                All
+              </NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleFilterClick('1')}>
+                1 Horn
+              </NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleFilterClick('2')}>
+                2 Horns
+              </NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleFilterClick('3')}>
+                3 Horns
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>

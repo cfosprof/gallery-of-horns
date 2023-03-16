@@ -33,7 +33,10 @@ class App extends React.Component {
 
   // Handler for filtering by the number of horns
   handleSelect(eventKey) {
-    this.setState({ selectedHorns: parseInt(eventKey, 10) });
+    console.log("Event key:", eventKey);
+    this.setState({ selectedHorns: parseInt(eventKey, 10) }, () => {
+      console.log("Selected Horns:", this.state.selectedHorns);
+    });
   }
 
   //TODO still need to fix this, and the issue with it not displaying unless the window is more than half full
@@ -60,18 +63,19 @@ class App extends React.Component {
     return (
       // Use a React fragment to render multiple elements without a parent container
       <>
-        <Header handleSort={this.handleSort} handleSearch={this.handleSearch} />
-        <Main
-          //pass state value as a prop to the Main component
-          data={beasts}
-          sortBy={this.state.sortBy}
-          searchQuery={this.state.searchQuery} // Pass the searchQuery 
-          selectedHorns={this.state.selectedHorns}
-          handleSelect={this.handleSelect}
-          handleSort={this.handleSort}
-          handleOpenModal={this.handleOpenModal}
-          handleSearch={this.handleSearch}
+        <Header
+        handleSort={this.handleSort}
+        handleFilter={this.handleSelect} // Pass handleSelect as handleFilter
+        handleSearch={this.handleSearch}
         />
+          <Main
+            sortBy={this.state.sortBy}
+            searchQuery={this.state.searchQuery}
+            selectedHorns={this.state.selectedHorns}
+            handleSort={this.handleSort}
+            handleOpenModal={this.handleOpenModal}
+            data={beasts}
+          />
         <SelectedBeast
           show={this.state.showModal}
           onHide={this.handleCloseModal}

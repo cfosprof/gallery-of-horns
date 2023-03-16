@@ -1,15 +1,17 @@
-import React from 'react';
-import NavbarDarkExample from './Navbar.js';
+import NavbarDarkExample from './Navbar';
 
-class Header extends React.Component {
-  render(){
-    return (
-      <header>
-        <NavbarDarkExample handleSort={this.props.handleSort}
-        handleSearch={this.props.handleSearch} />
-      </header>
-    )
-  }
+function Header(props) {
+  const { handleSort, handleFilter, handleSearch } = props;
+
+  return (
+    <header>
+      <NavbarDarkExample
+        handleSort={handleSort}
+        handleFilter={handleFilter}
+        handleSearch={handleSearch}
+      />
+    </header>
+  );
 }
 
 export default Header;
