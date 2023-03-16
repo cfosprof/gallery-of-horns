@@ -1,29 +1,35 @@
-// Import required dependencies
 import React from 'react';
 import './HornedBeast.css';
+import './data/data.json';
 
-// Define the HornedBeast class component
 class HornedBeast extends React.Component {
+  // Set up the initial state and bind event handlers in the constructor
   constructor(props) {
     super(props);
-    // Initialize the state
     this.state = {
       favorites: 0,
       favorited: false,
     };
-    // Bind the handleClick method to the instance
     this.handleClick = this.handleClick.bind(this);
+    this.handleImageClick = this.handleImageClick.bind(this);
   }
 
-  // Define the handleClick method, which increments the favorites count
-  handleClick() {
-    this.setState((prevState) => ({
-      favorites: prevState.favorites + 1,
-      favorited: true,
+  // Event handler for when the heart is clicked
+  handleClick(event) {
+    event.stopPropagation(); // Prevent the event from propagating to parent elements (prevents modal from opening)
+    
+    //TODO: MAke it to where clicked heart is locked once a user has favorited it so they can't count it multiple times.
+    this.setState((prevState) => ({ // 
+      favorites: prevState.favorites + 1, 
+      favorited: true, 
     }));
   }
 
-  // Define the render method for the component
+  // Event handler for when the actual image is clicked
+  handleImageClick() {
+    this.props.onClick(); 
+  }
+
   render() {
     // Destructure the props to get the title and imageUrl
     const { title, imageUrl } = this.props;
@@ -32,17 +38,23 @@ class HornedBeast extends React.Component {
 
     // Return the JSX for the component
     return (
-      // Create an article container with a click event handler
-      <article className="image-container" onClick={this.handleClick}>
+      // Create an article container with a click event handler for the image
+      <article className="image-container" onClick={this.handleImageClick}>
         {/* // Display the image with alt and title attributes */}
         <img src={imageUrl} alt={title} title={title} className="beast-image" />
-        {/* // Create an overlay to display the favorites count */}
+        {/* // Create an overlay div to display the favorites count and heart */}
         <div className="overlay">
+          {/* // Create a div to contain the heart and favorites count */}
           <div className="heart">
-            {/* // Display a heart icon and the favorites count */}
-            <span role="img" aria-label="heart">
+            {/* // Display a heart icon and set the onClick event to the handleClick function */}
+            <span
+              role="img"
+              aria-label="heart"
+              onClick={this.handleClick}
+            >
               ❤️
             </span>
+            {/* // Display the favorites count */}
             {favorites}
           </div>
         </div>
@@ -51,5 +63,4 @@ class HornedBeast extends React.Component {
   }
 }
 
-// Export the HornedBeast component
 export default HornedBeast;

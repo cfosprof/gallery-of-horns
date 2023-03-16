@@ -5,11 +5,11 @@ class Header extends React.Component {
   render(){
     return (
       <header>
-        <NavbarDarkExample />
+        <NavbarDarkExample handleSort={this.props.handleSort}
+        handleSearch={this.props.handleSearch} />
       </header>
     )
   }
 }
 
 export default Header;
-
