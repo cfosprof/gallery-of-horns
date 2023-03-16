@@ -2,7 +2,6 @@ import React from 'react';
 import Modal from 'react-bootstrap/Modal';
 
 class SelectedBeast extends React.Component {
-  // Render the SelectedBeast component
   render() {
     // Destructure the props to get the beast data, show status, and onHide function
     const { beast, show, onHide } = this.props;

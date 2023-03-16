@@ -13,7 +13,6 @@ class HornedBeast extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleImageClick = this.handleImageClick.bind(this);
   }
-
   // Event handler for when the heart is clicked
   handleClick(event) {
     event.stopPropagation(); // Prevent the event from propagating to parent elements (prevents modal from opening)
